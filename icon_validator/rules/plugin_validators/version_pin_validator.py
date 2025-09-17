@@ -19,7 +19,7 @@ class VersionPinValidator(KomandPluginValidator):
         requirements_text = self.read_requirements(spec).split("\n")
         for requirements_text_elements in requirements_text:
             requirements_text_elements = requirements_text_elements.strip()
-            if requirements_text_elements.startswith("#"):
+            if not requirements_text_elements or requirements_text_elements.startswith("#"):
                 continue
             requirements_text_elements = requirements_text_elements.split("#")[0]
             for requirements_text_one_element in requirements_text_elements.split(","):
